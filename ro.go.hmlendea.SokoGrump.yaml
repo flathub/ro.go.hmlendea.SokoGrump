@@ -20,30 +20,31 @@ modules:
       - install -Dm 644 "${FLATPAK_ID}.desktop" "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm 644 "${FLATPAK_ID}.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
       - install -Dm 755 "sokogrump.sh" "/app/bin/sokogrump"
-      - desktop-file-edit "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop" --set-key "Exec" --set-value "sokogrump" --set-key "Icon" --set-value "${FLATPAK_ID}"
+      - desktop-file-edit "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+        --set-key "Exec" --set-value "sokogrump" --set-key "Icon" --set-value "${FLATPAK_ID}"
     sources:
       - type: file
-        only-arches: [ aarch64 ]
-        url: https://github.com/hmlendea/sokogrump/releases/download/v2.2.0/sokogrump_2.2.0_linux-arm64.zip
+        only-arches: [aarch64]
+        url: https://github.com/hmlendea/sokogrump/releases/download/v2.3.0/sokogrump_2.3.0_linux-arm64.zip
         dest-filename: sokogrump.zip
-        sha256: d0855faabd998094043752a3ea782eb85a9c20c2d10f8af153a7aa95f0ea8db1
+        sha256: ef17ef1f461f96135fd6fb684fb7225b2aa0c4c87d466e26b832a7fb42ebb626
         x-checker-data:
           type: json
           url: https://api.github.com/repos/hmlendea/sokogrump/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name=="sokogrump_" + $version +
-            "_linux-arm64.zip") | .browser_download_url
+          url-query: .assets[] | select(.name=="sokogrump_" + $version + "_linux-arm64.zip")
+            | .browser_download_url
       - type: file
-        only-arches: [ x86_64 ]
-        url: https://github.com/hmlendea/sokogrump/releases/download/v2.2.0/sokogrump_2.2.0_linux-x64.zip
+        only-arches: [x86_64]
+        url: https://github.com/hmlendea/sokogrump/releases/download/v2.3.0/sokogrump_2.3.0_linux-x64.zip
         dest-filename: sokogrump.zip
-        sha256: cc3f18fec807d6926db81aeef84350f8f440e0738f2c2251552b3c9e90763c4b
+        sha256: 9ff60860aefa51b4dc5e09ad8945b5de66796cf18af7607ef301fa6fa38ef89e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/hmlendea/sokogrump/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name=="sokogrump_" + $version +
-            "_linux-x64.zip") | .browser_download_url
+          url-query: .assets[] | select(.name=="sokogrump_" + $version + "_linux-x64.zip")
+            | .browser_download_url
       - type: file
         path: ro.go.hmlendea.SokoGrump.metainfo.xml
       - type: file
