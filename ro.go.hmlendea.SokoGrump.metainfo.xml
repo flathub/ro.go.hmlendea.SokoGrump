@@ -7,7 +7,7 @@
   <developer_name>hmlendea</developer_name>
   <summary>Sokoban-like puzzle game featuring the Grumpy Cat</summary>
   <description>
-    <p>Help the Grumpy Cat solve puzzles by moving boxes around a warehouse to their target locations, in 25+ levels of increasing difficulty.</p>
+    <p>Help the Grumpy Cat solve puzzles by moving boxes around a warehouse to their target locations, in 30+ levels of increasing difficulty.</p>
   </description>
   <metadata_license>CC0-1.0</metadata_license>
   <url type="homepage">https://github.com/hmlendea/sokogrump</url>
@@ -15,10 +15,11 @@
   <url type="bugtracker">https://github.com/hmlendea/sokogrump/issues</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://raw.githubusercontent.com/hmlendea/sokogrump/052b6dd4c8b56b34cec4badb73368a6d2260c6d8/preview.png</image>
+      <image type="source">https://raw.githubusercontent.com/hmlendea/sokogrump/97473ed991b5d2ff43f1d9c6eaadaa39627f6368/preview.png</image>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="2.3.0" date="2022-03-24"/>
     <release version="2.2.0" date="2022-03-23"/>
   </releases>
   <content_rating type="oars-1.1"/>
