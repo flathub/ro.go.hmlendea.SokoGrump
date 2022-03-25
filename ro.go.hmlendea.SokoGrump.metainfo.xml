@@ -5,9 +5,9 @@
   <name>SokoGrump</name>
   <project_license>GPL-3.0</project_license>
   <developer_name>hmlendea</developer_name>
-  <summary>Sokoban-like puzzle game featuring the Grumpy Cat</summary>
+  <summary>Sokoban-like logic game featuring the Grumpy Cat</summary>
   <description>
-    <p>Help the Grumpy Cat solve puzzles by moving boxes around a warehouse to their target locations, in 30+ levels of increasing difficulty.</p>
+    <p>Help the Grumpy Cat solve puzzles by moving boxes around a warehouse to their target locations, in 100 levels of increasing difficulty.</p>
   </description>
   <metadata_license>CC0-1.0</metadata_license>
   <url type="homepage">https://github.com/hmlendea/sokogrump</url>
