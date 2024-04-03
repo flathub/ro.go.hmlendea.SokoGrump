@@ -25,9 +25,9 @@ modules:
     sources:
       - type: file
         only-arches: [aarch64]
-        url: https://github.com/hmlendea/sokogrump/releases/download/v2.4.0/sokogrump_2.4.0_linux-arm64.zip
+        url: https://github.com/hmlendea/sokogrump/releases/download/v2.5.0/sokogrump_2.5.0_linux-arm64.zip
         dest-filename: sokogrump.zip
-        sha256: a234b5c671dc81a9c7d7a8a5964b041267f468b2bb2c718a85c2c92302a90fbc
+        sha256: 1c941920e952a1e25b5eb2b3a29af30579a97e44ee03724b5f2ac8c9d3b1ffff
         x-checker-data:
           type: json
           url: https://api.github.com/repos/hmlendea/sokogrump/releases/latest
@@ -36,9 +36,9 @@ modules:
             | .browser_download_url
       - type: file
         only-arches: [x86_64]
-        url: https://github.com/hmlendea/sokogrump/releases/download/v2.4.0/sokogrump_2.4.0_linux-x64.zip
+        url: https://github.com/hmlendea/sokogrump/releases/download/v2.5.0/sokogrump_2.5.0_linux-x64.zip
         dest-filename: sokogrump.zip
-        sha256: addcdf72dd51be363d012cb678d036b808181914534a95c02f9a4cd843cd27c0
+        sha256: 44e321e335a8d1ce19c44708fabd12e94adc9ca70a8dd030407373c19c6cc6af
         x-checker-data:
           type: json
           url: https://api.github.com/repos/hmlendea/sokogrump/releases/latest
