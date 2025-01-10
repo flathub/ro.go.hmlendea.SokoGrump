@@ -4,7 +4,9 @@
   <launchable type="desktop-id">ro.go.hmlendea.SokoGrump.desktop</launchable>
   <name>SokoGrump</name>
   <project_license>GPL-3.0</project_license>
-  <developer_name>hmlendea</developer_name>
+  <developer id="ro.go.hmlendea">
+    <name>hmlendea</name>
+  </developer>
   <summary>Sokoban-like logic game featuring the Grumpy Cat</summary>
   <description>
     <p>Help the Grumpy Cat solve puzzles by moving boxes around a warehouse to their target locations, in 100 levels of increasing difficulty.</p>
