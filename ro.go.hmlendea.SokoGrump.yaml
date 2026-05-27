@@ -1,6 +1,6 @@
 app-id: ro.go.hmlendea.SokoGrump
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 separate-locales: false
 command: sokogrump
@@ -14,14 +14,14 @@ modules:
   - name: sokogrump
     buildsystem: simple
     build-commands:
-      - unzip -d "sokogrump" "sokogrump.zip"
-      - cp -r "sokogrump" /app
-      - install -Dm 644 "icon.png" "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
-      - install -Dm 644 "${FLATPAK_ID}.desktop" "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
-      - install -Dm 644 "${FLATPAK_ID}.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
-      - install -Dm 755 "sokogrump.sh" "/app/bin/sokogrump"
-      - desktop-file-edit "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
-        --set-key "Exec" --set-value "sokogrump" --set-key "Icon" --set-value "${FLATPAK_ID}"
+      - unzip -d sokogrump/ sokogrump.zip
+      - cp -r sokogrump/ /app
+      - install -Dm 644 ro.go.hmlendea.SokoGrump.png -t ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/
+      - install -Dm 644 ${FLATPAK_ID}.desktop -t ${FLATPAK_DEST}/share/applications/
+      - install -Dm 644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
+      - install -Dm 755 sokogrump.sh /app/bin/sokogrump
+      - desktop-file-edit ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+        --set-key "Exec" --set-value "sokogrump" --set-icon=${FLATPAK_ID}
     sources:
       - type: file
         only-arches: [aarch64]
@@ -49,11 +49,10 @@ modules:
         path: ro.go.hmlendea.SokoGrump.metainfo.xml
       - type: file
         url: https://raw.githubusercontent.com/hmlendea/sokogrump/80abe82e7a30dffe8f8dca8ee6357325f4ee24bf/icon.png
-        dest-filename: icon.png
+        dest-filename: ro.go.hmlendea.SokoGrump.png
         sha256: 35137309694e9cc07407f50cbffc958293be3802ed417671a7a70e9d69e7ab33
       - type: file
         url: https://raw.githubusercontent.com/hmlendea/sokogrump/f5f2965bdba2e588a60f391b64725f0ea0ce87d1/ro.go.hmlendea.SokoGrump.desktop
-        dest-filename: ro.go.hmlendea.SokoGrump.desktop
         sha256: 4152b79191427c0f81fc2757bf669cd50275587d30bfed87c5961cede4c80a88
       - type: script
         dest-filename: sokogrump.sh
