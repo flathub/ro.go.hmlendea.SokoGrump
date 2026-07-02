@@ -1,0 +1,44 @@
+name: Update metainfo on version bump
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  update-metainfo:
+    if: >
+      github.event.pull_request.user.login == 'flathubbot' &&
+      startsWith(github.event.pull_request.title, 'sokogrump: Update sokogrump.zip to ')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract version from PR title
+        id: version
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          VERSION="${TITLE##*to }"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Add release entry to metainfo
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          DATE="$(date +%Y-%m-%d)"
+          if ! grep -qF "version=\"$VERSION\"" ro.go.hmlendea.SokoGrump.metainfo.xml; then
+            sed -i "s|  <releases>|  <releases>\n    <release version=\"$VERSION\" date=\"$DATE\"/>|" \
+              ro.go.hmlendea.SokoGrump.metainfo.xml
+          fi
+
+      - name: Commit updated metainfo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ro.go.hmlendea.SokoGrump.metainfo.xml
+          git diff --staged --quiet || \
+            git commit -m "metainfo: Add release entry for v${{ steps.version.outputs.version }}"
+          git push
