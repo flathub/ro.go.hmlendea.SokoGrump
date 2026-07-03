@@ -8,7 +8,8 @@ command: sokogrump
 finish-args:
   - --share=ipc
   - --device=dri
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
 
 modules:
   - name: sokogrump
@@ -16,6 +17,7 @@ modules:
     build-commands:
       - unzip -d sokogrump/ sokogrump.zip
       - cp -r sokogrump/ /app
+      - rm -f /app/sokogrump/libSDL2-2.0.so.0
       - install -Dm 644 ro.go.hmlendea.SokoGrump.png -t ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/
       - install -Dm 644 ${FLATPAK_ID}.desktop -t ${FLATPAK_DEST}/share/applications/
       - install -Dm 644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
@@ -48,11 +50,12 @@ modules:
       - type: file
         path: ro.go.hmlendea.SokoGrump.metainfo.xml
       - type: file
-        url: https://raw.githubusercontent.com/hmlendea/sokogrump/80abe82e7a30dffe8f8dca8ee6357325f4ee24bf/icon.png
+        url: https://raw.githubusercontent.com/hmlendea/sokogrump/refs/heads/master/icon.png
         dest-filename: ro.go.hmlendea.SokoGrump.png
         sha256: 35137309694e9cc07407f50cbffc958293be3802ed417671a7a70e9d69e7ab33
       - type: file
-        url: https://raw.githubusercontent.com/hmlendea/sokogrump/f5f2965bdba2e588a60f391b64725f0ea0ce87d1/ro.go.hmlendea.SokoGrump.desktop
+        url: https://raw.githubusercontent.com/hmlendea/sokogrump/refs/heads/master/SokoGrump.desktop
+        dest-filename: ro.go.hmlendea.SokoGrump.desktop
         sha256: 4152b79191427c0f81fc2757bf669cd50275587d30bfed87c5961cede4c80a88
       - type: script
         dest-filename: sokogrump.sh
