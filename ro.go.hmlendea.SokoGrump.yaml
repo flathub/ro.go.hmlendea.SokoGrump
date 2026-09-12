@@ -1,6 +1,6 @@
 app-id: ro.go.hmlendea.SokoGrump
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 separate-locales: false
 command: sokogrump
@@ -52,7 +52,7 @@ modules:
       - type: file
         url: https://raw.githubusercontent.com/hmlendea/sokogrump/refs/heads/master/icon.png
         dest-filename: ro.go.hmlendea.SokoGrump.png
-        sha256: 35137309694e9cc07407f50cbffc958293be3802ed417671a7a70e9d69e7ab33
+        sha256: d8ce7f6ab52a1fa65284cb200b6f0186fd29da5f4cb48bec2d82572062a71ba3
       - type: file
         url: https://raw.githubusercontent.com/hmlendea/sokogrump/refs/heads/master/SokoGrump.desktop
         dest-filename: ro.go.hmlendea.SokoGrump.desktop
